@@ -3,14 +3,14 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "vn.greengift"
-        version   = "1.0.22">
+        id        = "vn.vibiz"
+        version   = "1.0.01">
 
-    <name>GreenGift</name>
+    <name>Vibiz</name>
 
-    <description>GreenGift for your family.</description>
+    <description>Daily news service.</description>
 
-    <author href="http://vhv.vn" email="contact@vhv.vn">VHV Team</author>
+    <author href="http://vhv.vn" email="contact@vhv.vn">Vibiz</author>
 
     <!-- Define the main entry-point to the application -->
     <content src="index.html" />
