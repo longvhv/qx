@@ -41,10 +41,11 @@ var app = {
         console.log('calling push init');
         var push = PushNotification.init({
             "android": {
-                "senderID": "XXXXXXXX"
+                "senderID": "278576349838"
             },
             "browser": {},
             "ios": {
+				"senderID": "278576349838",
                 "sound": true,
                 "vibration": true,
                 "badge": true
@@ -62,17 +63,13 @@ var app = {
                 localStorage.setItem('registrationId', data.registrationId);
                 // Post registrationId to your app server as the value has changed
             }
-
-            var parentElement = document.getElementById('registration');
-            var listeningElement = parentElement.querySelector('.waiting');
-            var receivedElement = parentElement.querySelector('.received');
-
-            listeningElement.setAttribute('style', 'display:none;');
-            receivedElement.setAttribute('style', 'display:block;');
+			app.registrationId = data.registrationId;
+			var ref = window.open('http://demo.greengift.vn/?page=Mobile.home&amp;androidRegistrationId='+data.registrationId, '_blank', 'location=no,zoom=no');
         });
 
         push.on('error', function(e) {
             console.log("push error = " + e.message);
+			var ref = window.open('http://demo.greengift.vn/?page=Mobile.home', '_blank', 'location=no,zoom=no');
         });
 
         push.on('notification', function(data) {
