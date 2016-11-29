@@ -64,12 +64,12 @@ var app = {
                 // Post registrationId to your app server as the value has changed
             }
 			app.registrationId = data.registrationId;
-			var ref = window.open('http://demo.greengift.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'location=no,zoom=no');
+			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'location=no,zoom=no');
         });
 
         push.on('error', function(e) {
             console.log("push error = " + e.message);
-			var ref = window.open('http://demo.greengift.vn/?page=Mobile.home', '_blank', 'location=no,zoom=no');
+			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home', '_blank', 'location=no,zoom=no');
         });
 
         push.on('notification', function(data) {
