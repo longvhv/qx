@@ -73,13 +73,19 @@ var app = {
         });
 
         push.on('notification', function(data) {
-            console.log('notification event');
+	    if(data.additionalData && data.additionalData.href)
+	    {
+		    window.open(data.additionalData.href, '_blank', 'location=no,zoom=no');
+	    }
+		else
+		{
             navigator.notification.alert(
-                data.message + JSON.stringify(data),         // message
+                data.message,         // message
                 null,                 // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
+		}
        });
     }
 };
