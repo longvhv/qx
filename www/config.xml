@@ -3,8 +3,8 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "vn.greengift"
-        version   = "1.0.23">
+        id        = "vn.vhv.greengift"
+        version   = "1.0.24">
 
     <name>GreenGift</name>
 
