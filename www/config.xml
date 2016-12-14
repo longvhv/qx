@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "vn.vibiz"
-        version   = "1.0.041">
+        version   = "1.0.042">
 
     <name>Vibiz</name>
 
