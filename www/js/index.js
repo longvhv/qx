@@ -33,47 +33,38 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        console.log('Received Device Ready Event');
-        console.log('calling setup push');
         app.setupPush();
     },
     setupPush: function() {
-        console.log('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "278576349838"
             },
             "browser": {},
             "ios": {
-				"senderID": "278576349838",
+                "senderID": "278576349838",
                 "sound": true,
                 "vibration": true,
                 "badge": true
             },
             "windows": {}
         });
-        console.log('after init');
-
         push.on('registration', function(data) {
-            console.log('registration event: ' + data.registrationId);
-
             var oldRegId = localStorage.getItem('registrationId');
             if (oldRegId !== data.registrationId) {
                 // Save new registration ID
                 localStorage.setItem('registrationId', data.registrationId);
                 // Post registrationId to your app server as the value has changed
             }
-			app.registrationId = data.registrationId;
-			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no');
+            app.registrationId = data.registrationId;
+            var ref = window.open('http://volleyball.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no');
         });
 
         push.on('error', function(e) {
-            console.log("push error = " + e.message);
-			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no');
+            var ref = window.open('http://volleyball.vn/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no');
         });
 
         push.on('notification', function(data) {
-            console.log('notification event');
             navigator.notification.alert(
                 data.message,         // message
                 null,                 // callback
