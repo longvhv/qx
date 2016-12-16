@@ -1,0 +1,31 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "vn.vibiz"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "278576349838",
+            "PACKAGE_NAME": "vn.vibiz"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "vn.vibiz"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "vn.vibiz"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "vn.vibiz"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "vn.vibiz"
+        }
+    },
+    "dependent_plugins": {}
+}
