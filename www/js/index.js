@@ -64,7 +64,7 @@ var app = {
                 // Post registrationId to your app server as the value has changed
             }
 			app.registrationId = data.registrationId;
-			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no');
+			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no,disallowoverscroll=true');
 		document.getElementById("app").onclick = function() {
 			
 		var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no,disallowoverscroll=true');
