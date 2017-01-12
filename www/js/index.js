@@ -33,12 +33,17 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        console.log('Received Device Ready Event');
-        console.log('calling setup push');
+        //console.log('Received Device Ready Event');
+        //console.log('calling setup push');
         app.setupPush();
+	    if(window.cordova && window.StatusBar)
+		{
+			StatusBar.overlaysWebView(false);
+			StatusBar.backgroundColorByHexString('#EE6E73');
+		}
     },
     setupPush: function() {
-        console.log('calling push init');
+        //console.log('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "278576349838"
@@ -52,10 +57,10 @@ var app = {
             },
             "windows": {}
         });
-        console.log('after init');
+        //console.log('after init');
 
         push.on('registration', function(data) {
-            console.log('registration event: ' + data.registrationId);
+            //console.log('registration event: ' + data.registrationId);
 
             var oldRegId = localStorage.getItem('registrationId');
             if (oldRegId !== data.registrationId) {
@@ -64,16 +69,23 @@ var app = {
                 // Post registrationId to your app server as the value has changed
             }
 			app.registrationId = data.registrationId;
-			var ref = window.open('http://demo.greengift.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no');
+			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
+		document.getElementById("app").onclick = function() {
+			
+		var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
+		};
         });
 
         push.on('error', function(e) {
-            console.log("push error = " + e.message);
-			var ref = window.open('http://demo.greengift.vn/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no');
+            //console.log("push error = " + e.message);
+			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+		document.getElementById("app").onclick = function() {
+			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+		};
         });
 
         push.on('notification', function(data) {
-            console.log('notification event');
+            //console.log('notification event');
             navigator.notification.alert(
                 data.message,         // message
                 null,                 // callback
