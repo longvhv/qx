@@ -36,6 +36,14 @@ var app = {
        // console.log('Received Device Ready Event');
         //console.log('calling setup push');
         app.setupPush();
+		if(window.cordova && window.StatusBar)
+		{
+			StatusBar.overlaysWebView(false);
+			//StatusBar.styleBlackOpaque();
+			StatusBar.backgroundColorByHexString('#EE6E73');
+			//StatusBar.backgroundColorByName("red");
+			//StatusBar.hide();
+		}
     },
     setupPush: function() {
       //  console.log('calling push init');
@@ -64,16 +72,19 @@ var app = {
                 // Post registrationId to your app server as the value has changed
             }
 			app.registrationId = data.registrationId;
-			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no,disallowoverscroll=true');
+			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,titlebar=no,toolbar=no,disallowoverscroll=yes');
 		document.getElementById("app").onclick = function() {
-			
-		var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no,disallowoverscroll=true');
+			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		};
         });
 
         push.on('error', function(e) {
            // console.log("push error = " + e.message);
-			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,toolbar=no');
+			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+			
+			document.getElementById("app").onclick = function() {
+			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+		};
         });
 
         push.on('notification', function(data) {
@@ -85,5 +96,8 @@ var app = {
                 'Ok'                  // buttonName
             );
        });
+	 document.onload = function(){
+document.ontouchmove = function(e){ e.preventDefault(); }
+};
     }
 };
