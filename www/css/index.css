@@ -54,7 +54,8 @@ body {
     height:256px;                   /* text area height */
     width:256px;                   /* text area width */
     text-align:center;
-    
+    margin-left:-128px;
+    margin-top:-128px;
 }
 
 /* Landscape layout (with min-width) */
