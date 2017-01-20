@@ -8,10 +8,26 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Quà Xanh</title>
+    <style>
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+</style>
 </head>
 
 <body>
-    <div id="mySwipe" style="position:fixed" class="swipe">
+    <div id="mySwipe" class="swipe">
       <div class='swipe-wrap'>
         <div><img src="img/01.jpg" width="100%" id="img1"></div><div><img src="img/02.jpg" width="100%" id="img2"></div><div><img src="img/03.jpg" width="100%" id="img3"></div>
       </div>
