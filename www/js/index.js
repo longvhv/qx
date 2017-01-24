@@ -58,10 +58,10 @@ var app = {
             "windows": {}
         });
         //console.log('after init');
-	var notFirstTime = localStorage.getItem('notFirstTime');
+	var notFirstTime = localStorage.getItem('notFirstTime')?true:false;
 	if(!notFirstTime)
 	{
-		localStorage.setItem('notFirstTime', true);
+		localStorage.setItem('notFirstTime', 1);
 	}
         push.on('registration', function(data) {
             //console.log('registration event: ' + data.registrationId);
@@ -73,12 +73,12 @@ var app = {
                 // Post registrationId to your app server as the value has changed
             }
 			app.registrationId = data.registrationId;
-		if(!notFirstTime)
+		if(notFirstTime)
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 		}
-		//windows.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
-		document.getElementById('mySwipe').onclick = function() {
+		windows.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
+		document.getElementById('img3').onclick = document.getElementById('mySwipe').onclick = function() {
 			
 		var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 		};
@@ -87,12 +87,12 @@ var app = {
 
         push.on('error', function(e) {
             //console.log("push error = " + e.message);
-		if(!notFirstTime)
+		if(notFirstTime)
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
-		//windows.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
-		document.getElementById('mySwipe').onclick = function() {
+		windows.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
+		document.getElementById('img3').onclick = document.getElementById('mySwipe').onclick = function() {
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		};
 		document.getElementById('mySwipe').style.position = 'absolute';
