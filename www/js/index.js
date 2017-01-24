@@ -61,7 +61,7 @@ var app = {
 	var notFirstTime = localStorage.getItem('notFirstTime');
 	if(!notFirstTime)
 	{
-		localStorage.setItem('notFirstTime', 1);
+		localStorage.setItem('notFirstTime', true);
 	}
         push.on('registration', function(data) {
             //console.log('registration event: ' + data.registrationId);
@@ -77,7 +77,7 @@ var app = {
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 		}
-		document.getElementById('img1').onclick = document.getElementById('img2').onclick = document.getElementById('img3').onclick = function() {
+		windows.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = document.getElementById('img3').onclick = function() {
 			
 		var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 		};
@@ -90,7 +90,7 @@ var app = {
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
-		document.getElementById('img1').onclick = document.getElementById('img2').onclick = document.getElementById('img3').onclick = function() {
+		windows.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = document.getElementById('img3').onclick = function() {
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		};
 		document.getElementById('mySwipe').style.position = 'absolute';
