@@ -77,12 +77,13 @@ var app = {
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 		}
-		windows.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
+		window.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
 		document.getElementById('img3').onclick = document.getElementById('mySwipe').onclick = function() {
 			
 		var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 		};
 		document.getElementById('mySwipe').style.position = 'absolute';
+		return false;
         });
 
         push.on('error', function(e) {
@@ -91,11 +92,12 @@ var app = {
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
-		windows.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
+		window.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
 		document.getElementById('img3').onclick = document.getElementById('mySwipe').onclick = function() {
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		};
 		document.getElementById('mySwipe').style.position = 'absolute';
+		return false;
         });
 
         push.on('notification', function(data) {
