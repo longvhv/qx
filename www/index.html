@@ -38,7 +38,7 @@
     <script type="text/javascript" src="js/swipe.js"></script>
     
     <script type="text/javascript">
-        $('#mySwipe a').on('click tap', function(e){
+        $('#mySwipe a').on('tap', function(e){
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 			document.getElementById('mySwipe').style.position = 'absolute';
 			e.preventDefault();
