@@ -114,8 +114,8 @@ var app = {
        });
     }
 };
-function clickImg(){
+$('#mySwipe a').on('click tap', function(){
 	var ref = window.open('http://quaxanh.top/?page=Mobile.home'+(app.registrationId?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 	document.getElementById('mySwipe').style.position = 'absolute';
 	return false;
-}
+});
