@@ -38,9 +38,7 @@ var app = {
         app.setupPush();
 	document.body.onclick = function(e){
 		try{
-			alert(1);
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
-			alert('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''));
 		}
 		catch(e)
 		{
