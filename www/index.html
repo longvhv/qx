@@ -38,12 +38,7 @@
     <script type="text/javascript" src="js/swipe.js"></script>
     
     <script type="text/javascript">
-       $('body,#mySwipe').on('click tap', function(e){
-		var ref = window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
-		$('#mySwipe').hide();
-		e.preventDefault();
-		return false;
-	});
+      
         var elem = document.getElementById('mySwipe');
         window.mySwipe = Swipe(elem, { 
         });
