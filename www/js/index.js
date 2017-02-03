@@ -65,26 +65,27 @@ var app = {
 	}
         push.on('registration', function(data) {
             //console.log('registration event: ' + data.registrationId);
-
-            var oldRegId = localStorage.getItem('registrationId');
-            if (oldRegId !== data.registrationId) {
-                // Save new registration ID
-                localStorage.setItem('registrationId', data.registrationId);
-                // Post registrationId to your app server as the value has changed
-            }
-			app.registrationId = data.registrationId;
+		var oldRegId = localStorage.getItem('registrationId');
+		if (oldRegId !== data.registrationId) {
+		// Save new registration ID
+		localStorage.setItem('registrationId', data.registrationId);
+		// Post registrationId to your app server as the value has changed
+		}
+		app.registrationId = data.registrationId;
 		if(notFirstTime)
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 		}
-		window.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
-		document.getElementById('img3').onclick = document.getElementById('mySwipe').onclick = function() {
-			
-		var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
+		var myOnClick = function() {
+			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
+			document.getElementById('mySwipe').style.position = 'absolute';
+			return false;
 		};
-		document.getElementById('mySwipe').style.position = 'absolute';
-		return false;
-        });
+		document.getElementById('img1').addEventListener('click', myOnClick, false);
+		document.getElementById('img2').addEventListener('click', myOnClick, false);
+		document.getElementById('img3').addEventListener('click', myOnClick, false);
+	});
+		
 
         push.on('error', function(e) {
             //console.log("push error = " + e.message);
@@ -92,12 +93,14 @@ var app = {
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
-		window.onclick = document.getElementById('img1').onclick = document.getElementById('img2').onclick = 
-		document.getElementById('img3').onclick = document.getElementById('mySwipe').onclick = function() {
+		var myOnClick = function() {
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+			document.getElementById('mySwipe').style.position = 'absolute';
+			return false;
 		};
-		document.getElementById('mySwipe').style.position = 'absolute';
-		return false;
+		document.getElementById('img1').addEventListener('click', myOnClick, false);
+		document.getElementById('img2').addEventListener('click', myOnClick, false);
+		document.getElementById('img3').addEventListener('click', myOnClick, false);
         });
 
         push.on('notification', function(data) {
