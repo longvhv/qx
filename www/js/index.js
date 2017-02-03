@@ -36,11 +36,16 @@ var app = {
         //console.log('Received Device Ready Event');
         //console.log('calling setup push');
         app.setupPush();
-	    if(window.cordova && window.StatusBar)
-		{
-			StatusBar.overlaysWebView(false);
-			StatusBar.backgroundColorByHexString('#EE6E73');
-		}
+	$('#mySwipe a').on('click tap', function(){
+		var ref = window.open('http://quaxanh.top/?page=Mobile.home'+(app.registrationId?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
+		document.getElementById('mySwipe').style.position = 'absolute';
+		return false;
+	});
+	if(window.cordova && window.StatusBar)
+	{
+		StatusBar.overlaysWebView(false);
+		StatusBar.backgroundColorByHexString('#EE6E73');
+	}
     },
     setupPush: function() {
         //console.log('calling push init');
@@ -114,8 +119,4 @@ var app = {
        });
     }
 };
-$('#mySwipe a').on('click tap', function(){
-	var ref = window.open('http://quaxanh.top/?page=Mobile.home'+(app.registrationId?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
-	document.getElementById('mySwipe').style.position = 'absolute';
-	return false;
-});
+
