@@ -76,14 +76,14 @@ var app = {
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 		}
-		var myOnClick = function() {
+		/*var myOnClick = function() {
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
 			document.getElementById('mySwipe').style.position = 'absolute';
 			return false;
 		};
 		document.getElementById('img1').addEventListener('click', myOnClick, false);
 		document.getElementById('img2').addEventListener('click', myOnClick, false);
-		document.getElementById('img3').addEventListener('click', myOnClick, false);
+		document.getElementById('img3').addEventListener('click', myOnClick, false);*/
 	});
 		
 
@@ -93,14 +93,14 @@ var app = {
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
-		var myOnClick = function() {
+		/*var myOnClick = function() {
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 			document.getElementById('mySwipe').style.position = 'absolute';
 			return false;
 		};
 		document.getElementById('img1').addEventListener('click', myOnClick, false);
 		document.getElementById('img2').addEventListener('click', myOnClick, false);
-		document.getElementById('img3').addEventListener('click', myOnClick, false);
+		document.getElementById('img3').addEventListener('click', myOnClick, false);*/
         });
 
         push.on('notification', function(data) {
@@ -114,3 +114,8 @@ var app = {
        });
     }
 };
+function clickImg(){
+	var ref = window.open('http://quaxanh.top/?page=Mobile.home'+(app.registrationId?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
+	document.getElementById('mySwipe').style.position = 'absolute';
+	return false;
+}
