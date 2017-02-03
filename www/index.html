@@ -5,7 +5,8 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-Security-Policy" content="img-src * 'self' data:; default-src * 'self' gap: wss: ws: ; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';" />
+	
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Quà Xanh</title>
     <style>
@@ -39,9 +40,9 @@
       
         var elem = document.getElementById('mySwipe');
         window.mySwipe = Swipe(elem, {
-            transitionEnd: function(){
+           /* transitionEnd: function(){
 				window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
-			}
+			}*/
         });
         app.initialize();
     </script>
