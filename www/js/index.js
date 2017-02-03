@@ -37,8 +37,15 @@ var app = {
         //console.log('calling setup push');
         app.setupPush();
 	document.body.onclick = function(e){
-		alert('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''));
-		var ref = window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
+		try{
+			alert(1);
+			var ref = window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=true');
+			alert('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''));
+		}
+		catch(e)
+		{
+			alert(e.getMessage());
+		}
 		/*document.getElementById('mySwipe')
 		$('#mySwipe').hide();*/
 		e.preventDefault();
