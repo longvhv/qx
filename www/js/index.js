@@ -51,6 +51,7 @@ var app = {
 	};
 		if(window.cordova && window.StatusBar)
 		{
+			window.open = cordova.InAppBrowser.open;
 			StatusBar.overlaysWebView(false);
 			//StatusBar.styleBlackOpaque();
 			StatusBar.backgroundColorByHexString('#EE6E73');
