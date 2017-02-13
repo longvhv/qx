@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "vn.greengift"
-        version   = "1.0.267">
+        version   = "1.0.268">
 
     <name>Quà Xanh</name>
 
@@ -16,8 +16,10 @@
     <content src="index.html" />
 
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="webviewbounce" value="false" />
-<preference name="UIWebViewBounce" value="false" />
+    <preference name="webviewbounce" value="true" />
+<preference name="orienation" value="portrait" />
+	
+<preference name="UIWebViewBounce" value="true" />
 <preference name="DisallowOverscroll" value="true" />
     <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-minSdkVersion"      value="14" />
@@ -27,7 +29,7 @@
     <preference name="StatusBarStyle"             value="blacktranslucent" />
 
     <!-- Define a specific version of PhoneGap to build into your app. -->
-    <!-- <preference name="phonegap-version"       value="cli-6.0.0" /> -->
+    <preference name="phonegap-version"       value="cli-6.4.3" />
 
     <!-- Plugins -->
     <plugin name="cordova-plugin-statusbar"     source="npm" spec="~2.2.1" />
