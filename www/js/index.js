@@ -38,7 +38,7 @@ var app = {
         app.setupPush();
 	document.body.onclick = function(e){
 		try{
-			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,titlebar=no,toolbar=no,disallowoverscroll=yes');
+			var ref = window.open('http://demo.vibiz.vn/?page=Mobile.home&androidRegistrationId='+(app.registrationId?app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,titlebar=no,toolbar=no,disallowoverscroll=yes');
 		}
 		catch(e)
 		{
