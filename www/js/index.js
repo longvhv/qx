@@ -20,7 +20,6 @@ var app = {
     // Application Constructor
     initialize: function() {
 		app.notFirstTime = localStorage.getItem('notFirstTime')?true:false;
-	    
 		if(!app.notFirstTime)
 		{
 			localStorage.setItem('notFirstTime', 1);
@@ -34,7 +33,6 @@ var app = {
 				});
 			}, 100);
 		}
-	   
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -54,7 +52,7 @@ var app = {
         app.setupPush();
 	document.body.onclick = function(e){
 		try{
-			var ref = window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+			app.win = window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
 		catch(e)
 		{
@@ -71,6 +69,57 @@ var app = {
 		StatusBar.overlaysWebView(false);
 		StatusBar.backgroundColorByHexString('#EE6E73');
 	}
+	document.addEventListener('offline', function(){
+		//alert('offline');
+		
+		if(navigator.notification.activityStart)
+		{
+			navigator.notification.activityStart("Vui lòng chờ", "Mất kết nối internet...");
+		}
+		else
+		{
+			alert('Mất kết nối internet!');
+		}
+		if(app.win)
+		{
+			if(app.win.hide)
+			{
+				app.win.hide();
+			}
+			else
+			{
+				app.win.close();
+				app.win = false;
+			}
+			/*app.win.executeScript({
+				code: "var obj=document.querySelector('#nointernetconnection'); if(!obj){var element = document.createElement('div'); element.innerHTML = '<div style=\"background-color:yellow;text-align:center;font-weight:bold;\">Mất kết nối internet...</div>'; if (document.body.firstChild) document.body.insertBefore(element, document.body.firstChild); else document.body.appendChild(element);} else {obj.style.display='block';}"
+			});*/
+		}
+		var elem = document.getElementById('mySwipe');
+		elem.innerHTML = '<img src="img/disconnect.jpg" width="100%">';
+	}, false);
+	document.addEventListener('online', function(){
+		//alert('online');
+		if(navigator.notification.activityStop)
+		{
+			navigator.notification.activityStop();
+		}
+		var elem = document.getElementById('mySwipe');
+		elem.innerHTML = '<img src="img/welcome.jpg" width="100%">';
+		if(app.win)
+		{
+			app.win.show();
+			/*app.win.executeScript({
+				code: "var obj=document.querySelector('#nointernetconnection'); if(obj){obj.style.display='none';}"
+			});*/
+		}
+		else
+		{
+			setTimeout(function(){
+				app.win = window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+			}, 5000);
+		}
+	}, false);
     },
     setupPush: function() {
         //console.log('calling push init');
@@ -100,7 +149,7 @@ var app = {
 		app.registrationId = data.registrationId;
 		if(app.notFirstTime)
 		{
-			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+			app.win = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
 		/*var myOnClick = function() {
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
@@ -117,7 +166,7 @@ var app = {
             //console.log("push error = " + e.message);
 		if(app.notFirstTime)
 		{
-			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+			app.win = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
 		/*var myOnClick = function() {
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
