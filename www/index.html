@@ -29,21 +29,12 @@
 </head>
 
 <body>
-    <div id="mySwipe" class="swipe">
-      <div class='swipe-wrap'><a href="javascript:void(0);"><img src="img/01.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/02.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/03.jpg" width="100%"></a></div>
-    </div>
+    <div id="mySwipe" class="swipe"><img src="img/welcome.jpg" width="100%"></div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/swipe.js"></script>
     
     <script type="text/javascript">
-      
-        var elem = document.getElementById('mySwipe');
-        window.mySwipe = Swipe(elem, {
-           /* transitionEnd: function(){
-				window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
-			}*/
-        });
         app.initialize();
     </script>
 </body>
