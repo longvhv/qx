@@ -19,18 +19,20 @@
 var app = {
     // Application Constructor
     initialize: function() {
-	app.notFirstTime = localStorage.getItem('notFirstTime')?true:false;
-	if(1 || !app.notFirstTime)
-	{
-		localStorage.setItem('notFirstTime', 1);
-		var elem = document.getElementById('mySwipe');
-        	elem.innerHTML = '<div class="swipe-wrap"><a href="javascript:void(0);"><img src="img/01.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/02.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/03.jpg" width="100%"></a></div>';
-        	window.mySwipe = Swipe(elem, {
-           /* transitionEnd: function(){
+		app.notFirstTime = localStorage.getItem('notFirstTime')?true:false;
+		if(!app.notFirstTime)
+		{
+			localStorage.setItem('notFirstTime', 1);
+			var elem = document.getElementById('mySwipe');
+			elem.innerHTML = '<div class="swipe-wrap"><a href="javascript:void(0);"><img src="img/01.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/02.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/03.jpg" width="100%"></a></div>';
+			setTimeout(function(){
+				Swipe(elem, {
+		   /* transitionEnd: function(){
 				window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 			}*/
-        	});
-	}
+				});
+			}, 100);
+		}
         this.bindEvents();
     },
     // Bind Event Listeners
