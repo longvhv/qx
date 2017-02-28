@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
 		app.notFirstTime = localStorage.getItem('notFirstTime')?true:false;
+	    
 		if(!app.notFirstTime)
 		{
 			localStorage.setItem('notFirstTime', 1);
@@ -33,6 +34,7 @@ var app = {
 				});
 			}, 100);
 		}
+	   
         this.bindEvents();
     },
     // Bind Event Listeners
