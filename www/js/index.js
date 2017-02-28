@@ -19,6 +19,18 @@
 var app = {
     // Application Constructor
     initialize: function() {
+	app.notFirstTime = localStorage.getItem('notFirstTime')?true:false;
+	if(1 || !app.notFirstTime)
+	{
+		localStorage.setItem('notFirstTime', 1);
+		var elem = document.getElementById('mySwipe');
+        	elem.innerHTML = '<div class="swipe-wrap"><a href="javascript:void(0);"><img src="img/01.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/02.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/03.jpg" width="100%"></a></div>';
+        	window.mySwipe = Swipe(elem, {
+           /* transitionEnd: function(){
+				window.open('http://quaxanh.top/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+			}*/
+        	});
+	}
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -72,11 +84,7 @@ var app = {
             "windows": {}
         });
         //console.log('after init');
-	var notFirstTime = localStorage.getItem('notFirstTime')?true:false;
-	if(!notFirstTime)
-	{
-		localStorage.setItem('notFirstTime', 1);
-	}
+	
         push.on('registration', function(data) {
             //console.log('registration event: ' + data.registrationId);
 		var oldRegId = localStorage.getItem('registrationId');
@@ -86,7 +94,7 @@ var app = {
 		// Post registrationId to your app server as the value has changed
 		}
 		app.registrationId = data.registrationId;
-		if(notFirstTime)
+		if(app.notFirstTime)
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
@@ -103,7 +111,7 @@ var app = {
 
         push.on('error', function(e) {
             //console.log("push error = " + e.message);
-		if(notFirstTime)
+		if(app.notFirstTime)
 		{
 			var ref = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
