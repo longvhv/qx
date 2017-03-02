@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "vn.greengift"
-        version   = "1.0.273">
+        version   = "1.0.274">
 
     <name>Quà Xanh</name>
 
@@ -29,7 +29,7 @@
     <preference name="StatusBarStyle"             value="blacktranslucent" />
 
     <!-- Define a specific version of PhoneGap to build into your app. -->
-    <preference name="phonegap-version"       value="cli-6.5.0" />
+    <preference name="phonegap-version"       value="cli-6.4.0" />
 
     <!-- Plugins -->
     <plugin name="cordova-plugin-statusbar"     source="npm" spec="~2.2.1" />
