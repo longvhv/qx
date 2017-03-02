@@ -166,6 +166,7 @@ var app = {
 
         push.on('error', function(e) {
             //console.log("push error = " + e.message);
+		alert('push error');
 		if(app.notFirstTime)
 		{
 			app.win = window.open('http://quaxanh.top/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
