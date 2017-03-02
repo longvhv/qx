@@ -146,7 +146,9 @@ var app = {
 		localStorage.setItem('registrationId', data.registrationId);
 		// Post registrationId to your app server as the value has changed
 		}
+		
 		app.registrationId = data.registrationId;
+		alert(app.registrationId);
 		if(app.notFirstTime)
 		{
 			app.win = window.open('http://quaxanh.top/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
