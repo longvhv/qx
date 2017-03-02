@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "vn.greengift"
-        version   = "1.0.274">
+        version   = "1.0.275">
 
     <name>Quà Xanh</name>
 
@@ -33,7 +33,7 @@
 
     <!-- Plugins -->
     <plugin name="cordova-plugin-statusbar"     source="npm" spec="~2.2.1" />
-    <plugin name="phonegap-plugin-push"         source="npm" spec="~1.9.4" >
+    <plugin name="phonegap-plugin-push"         source="npm" spec="~1.8.0" >
         <variable name="SENDER_ID" value="278576349838" />
     </plugin>
     <plugin name="cordova-plugin-console"       source="npm" spec="~1.0.3" />
