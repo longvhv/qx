@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "vn.vhv.greengift"
-        version   = "1.0.276">
+        version   = "1.0.277">
 
     <name>Quà Xanh</name>
 
