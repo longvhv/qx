@@ -104,7 +104,7 @@ var app = {
             },
             "browser": {},
             "ios": {
-		"senderID": "278576349838",
+		//"senderID": "278576349838",
                 "sound": true,
                 "vibration": true,
                 "badge": true
