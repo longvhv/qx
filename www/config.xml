@@ -3,12 +3,12 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "vn.vhv.app"
+        id        = "net.viettelstudy"
         version   = "1.0.286">
 
-    <name>Quà Xanh</name>
+    <name>ViettelStudy</name>
 
-    <description>Thực phẩm hữu cơ Quà Xanh.</description>
+    <description>ViettelStudy</description>
 
     <author href="http://vhv.vn" email="contact@vhv.vn">VHV Team</author>
 
