@@ -2,42 +2,20 @@
 var app = {
     // Application Constructor
     initialize: function() {
-		app.notFirstTime = localStorage.getItem('notFirstTime')?true:false;
-		if(!app.notFirstTime)
-		{
-			localStorage.setItem('notFirstTime', 1);
-			var elem = document.getElementById('mySwipe');
-			elem.innerHTML = '<div class="swipe-wrap"><a href="javascript:void(0);"><img src="img/01.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/02.jpg" width="100%"></a><a href="javascript:void(0);"><img src="img/03.jpg" width="100%"></a></div>';
-			setTimeout(function(){
-				Swipe(elem, {
-		   /* transitionEnd: function(){
-				window.open('http://beta.viettelstudy.vn/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
-			}*/
-				});
-			}, 100);
-		}
         this.bindEvents();
     },
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     onDeviceReady: function() {
-        //console.log('Received Device Ready Event');
-        //console.log('calling setup push');
         app.setupPush();
-	document.body.onclick = function(e){
-		try{
-			app.win = window.open('http://beta.viettelstudy.vn/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
-		}
-		catch(e)
-		{
-			alert(e.getMessage());
-		}
-		/*document.getElementById('mySwipe')
-		$('#mySwipe').hide();*/
-		e.preventDefault();
-		return false;
-	};
+	try{
+		app.win = window.open('http://beta.viettelstudy.vn/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+	}
+	catch(e)
+	{
+		alert(e.getMessage());
+	}
 	if(window.cordova && window.StatusBar)
 	{
 		window.open = cordova.InAppBrowser.open;
