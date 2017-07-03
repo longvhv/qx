@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "net.viettelstudy"
-        version   = "1.0.005">
+        version   = "1.0.006">
 
     <name>ViettelStudy</name>
 
@@ -29,7 +29,7 @@
     <preference name="StatusBarStyle"             value="blacktranslucent" />
 
     <!-- Define a specific version of PhoneGap to build into your app. -->
-    <!--preference name="phonegap-version"       value="cli-6.3.1" /-->
+    <preference name="phonegap-version"       value="cli-6.5.0" >
 
     <!-- Plugins -->
 	<!--  spec="~1.10.0"  -->
