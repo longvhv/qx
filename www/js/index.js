@@ -6,18 +6,15 @@ var app = {
 	    
     },
     bindEvents: function() {
-	    alert(1);
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     onDeviceReady: function() {
-	    alert(2);
 	if(window.cordova && window.StatusBar)
 	{
 		window.open = cordova.InAppBrowser.open;
 		StatusBar.overlaysWebView(false);
 		StatusBar.backgroundColorByHexString('#EE6E73');
 	}
-	    alert(3);
 	try{
         	app.setupPush();
 	}
@@ -86,7 +83,6 @@ var app = {
 	}, false);
     },
     setupPush: function() {
-	    alert(4);
         //console.log('calling push init');
         var push = PushNotification.init({
             "android": {
@@ -102,9 +98,7 @@ var app = {
             "windows": {}
         });
         //console.log('after init');
-	alert(5);
         push.on('registration', function(data) {
-		alert(6);
             //console.log('registration event: ' + data.registrationId);
 		var oldRegId = localStorage.getItem('registrationId');
 		if (oldRegId !== data.registrationId) {
@@ -119,7 +113,6 @@ var app = {
 		{
 			app.win = window.open('http://beta.viettelstudy.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
-		alert(7);
 		/*var myOnClick = function() {
 			var ref = window.open('http://beta.viettelstudy.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 			document.getElementById('mySwipe').style.position = 'absolute';
@@ -132,7 +125,6 @@ var app = {
 		
 
         push.on('error', function(e) {
-		alert(8);
             //console.log("push error = " + e.message);
 		//alert(e.message);
 		//if(app.notFirstTime)
@@ -148,7 +140,6 @@ var app = {
 		document.getElementById('img2').addEventListener('click', myOnClick, false);
 		document.getElementById('img3').addEventListener('click', myOnClick, false);*/
         });
-alert(9);
         push.on('notification', function(data) {
             //console.log('notification event');
             navigator.notification.alert(
