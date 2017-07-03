@@ -34,7 +34,7 @@
     <!-- Plugins -->
 	<!--  spec="~1.10.0"  -->
     <plugin name="cordova-plugin-statusbar"     source="npm" spec="~2.2.1" />
-    <plugin name="phonegap-plugin-push"         source="npm"/>
+    <plugin name="phonegap-plugin-push"         source="npm">
 	    
         <variable name="SENDER_ID" value="278576349838" />
     </plugin>
