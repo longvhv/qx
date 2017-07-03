@@ -8,20 +8,27 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     onDeviceReady: function() {
-        app.setupPush();
-	try{
-		app.win = window.open('http://beta.viettelstudy.vn/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
-	}
-	catch(e)
-	{
-		alert(e.getMessage());
-	}
 	if(window.cordova && window.StatusBar)
 	{
 		window.open = cordova.InAppBrowser.open;
 		StatusBar.overlaysWebView(false);
 		StatusBar.backgroundColorByHexString('#EE6E73');
 	}
+	try{
+        	app.setupPush();
+	}
+	catch(e)
+	{
+		alert(e.getMessage());
+	}
+	/*try{
+		app.win = window.open('http://beta.viettelstudy.vn/?page=Mobile.home'+((window.app && app.registrationId)?'&androidRegistrationId='+app.registrationId:''), '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+	}
+	catch(e)
+	{
+		alert(e.getMessage());
+	}*/
+	
 	document.addEventListener('offline', function(){
 		//alert('offline');
 		
@@ -102,7 +109,7 @@ var app = {
 		
 		app.registrationId = data.registrationId;
 		//alert(app.registrationId);
-		if(app.notFirstTime)
+		//if(app.notFirstTime)
 		{
 			app.win = window.open('http://beta.viettelstudy.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
@@ -120,7 +127,7 @@ var app = {
         push.on('error', function(e) {
             //console.log("push error = " + e.message);
 		//alert(e.message);
-		if(app.notFirstTime)
+		//if(app.notFirstTime)
 		{
 			app.win = window.open('http://beta.viettelstudy.vn/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		}
