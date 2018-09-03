@@ -158,6 +158,7 @@ var app = {
        });
     },
 	initEvents: function(){
+		document.getElementById('mySwipe').style.display = 'none';
 		/*app.win.addEventListener('loadstop', function(){
 			app.win.executeScript({ code: 'VHV.site;' }, function(response){
 				console.log(response);
