@@ -75,7 +75,7 @@ var app = {
 					app.initEvents();
 				}, 5000);
 			}
-		}, false);
+		}, false); 
 		app.win = window.open('http://viettelstudy.net/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		app.initEvents();
 		/*try{
