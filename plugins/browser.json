@@ -1,0 +1,34 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "net.viettelstudy"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "278576349838",
+            "PACKAGE_NAME": "net.viettelstudy"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "net.viettelstudy"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "net.viettelstudy"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "net.viettelstudy"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "net.viettelstudy"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "net.viettelstudy"
+        }
+    },
+    "dependent_plugins": {}
+}
