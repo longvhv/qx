@@ -78,47 +78,52 @@ var app = {
 		}, false); 
 		app.win = window.open('http://viettelstudy.net/?page=Mobile.home', '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 		app.initEvents();
-		/*try{
-				app.setupPush();
+			
+		try{
+			app.setupPush();
 		}
 		catch(e)
 		{
 			alert(e.getMessage());
 			
-		}*/
+		}
     },
     setupPush: function() {
-        //console.log('calling push init');
-        var push = PushNotification.init({
-            "android": {
-                "senderID": "278576349838"
-            },
-            "browser": {},
-            "ios": {
-		//"senderID": "278576349838",
-                "sound": true,
-                "vibration": true,
-                "badge": true
-            },
-            "windows": {}
-        });
-        //console.log('after init');
-        push.on('registration', function(data) {
-            //console.log('registration event: ' + data.registrationId);
-		var oldRegId = localStorage.getItem('registrationId');
-		if (oldRegId !== data.registrationId) {
-		// Save new registration ID
-		localStorage.setItem('registrationId', data.registrationId);
-		// Post registrationId to your app server as the value has changed
-		}
 		
-		app.registrationId = data.registrationId;
-		//alert(app.registrationId);
-		//if(app.notFirstTime)
-		{
-			app.win = window.open('http://viettelstudy.net/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
-			app.initEvents();
-		}
+        console.log('calling push init');
+		try{
+			var push = PushNotification.init({
+				"android": {
+					"senderID": "278576349838"
+				},
+				"browser": {},
+				"ios": {
+			//"senderID": "278576349838",
+					"sound": true,
+					"vibration": true,
+					"badge": true
+				},
+				"windows": {}
+			});
+			//console.log('after init');
+			push.on('registration', function(data) {
+				//console.log('registration event: ' + data.registrationId);
+				var oldRegId = localStorage.getItem('registrationId');
+				if (oldRegId !== data.registrationId) {
+					// Save new registration ID
+					localStorage.setItem('registrationId', data.registrationId);
+					// Post registrationId to your app server as the value has changed
+				}
+				
+				app.registrationId = data.registrationId;
+				//alert(app.registrationId);
+				//if(app.notFirstTime)
+				{
+					app.win = window.open('http://viettelstudy.net/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
+					app.initEvents();
+				}
+			});
+		
 		/*var myOnClick = function() {
 			var ref = window.open('http://beta.viettelstudy.vn/?page=Mobile.home&androidRegistrationId='+data.registrationId, '_blank', 'fullscreen=yes,location=no,zoom=no,status=no,toolbar=no,titlebar=no,disallowoverscroll=yes');
 			document.getElementById('mySwipe').style.position = 'absolute';
@@ -127,11 +132,10 @@ var app = {
 		document.getElementById('img1').addEventListener('click', myOnClick, false);
 		document.getElementById('img2').addEventListener('click', myOnClick, false);
 		document.getElementById('img3').addEventListener('click', myOnClick, false);*/
-	});
 		
 
         push.on('error', function(e) {
-            //console.log("push error = " + e.message);
+            console.log("push error = " + e.message);
 		//alert(e.message);
 		//if(app.notFirstTime)
 		{
@@ -149,13 +153,19 @@ var app = {
         });
         push.on('notification', function(data) {
             //console.log('notification event');
-            navigator.notification.alert(
+			alert(data.message); 
+            if(0) navigator.notification.alert(
                 data.message,         // message
                 null,                 // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
        });
+	   }
+		catch(e)
+		{
+			alert(e.getMessage());
+		}
     },
 	initEvents: function(){
 		document.getElementById('mySwipe').style.display = 'none';
@@ -174,15 +184,6 @@ var app = {
 				document.getElementById("sticky-header").className = "";
 			}
 		}*/
-	},
-	redirect: function(url)
-	{
-		if(app.win)
-		{
-			app.win.executeScript({
-				code: 'location = "'+url.replace('"', '&quot;')+'"'
-			});
-		}
 	}
 };
 
